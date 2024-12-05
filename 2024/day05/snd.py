@@ -1,3 +1,5 @@
+from functools import cmp_to_key
+
 rules_txt, updates_txt = open("input.txt", "r").read().split("\n\n")
 
 rules = list(map(lambda x: tuple(map(int, x.split("|"))), rules_txt.split("\n")))
@@ -13,28 +15,18 @@ for r in rules:
     else:
         after[a].add(b)
 
-def resolve(u):
-    for i in range(1, len(u)):
-        if u[i] not in after:
-            continue
-
-        for j in range(i):
-            if u[j] in after[u[i]]:
-                uu = u[:j] + u[j+1:i+1] + [u[j]] + u[i+1:]
-                return True, uu
-
-    return False, []
+def cmp(a, b):
+    if a in after and b in after[a]:
+        return -1
+    else:
+        return 0
 
 for u in updates:
     n = len(u)
-    incorrectly, _ = resolve(u)
+    uu = sorted(u, key=cmp_to_key(cmp))
 
-    while incorrectly:
-        c, uu = resolve(u)
-        if c:
-            u = uu
-        else:
-            sum += u[n // 2]
-            break
+    if u != uu:
+        sum += uu[n // 2]
+        continue
 
 print(sum)
