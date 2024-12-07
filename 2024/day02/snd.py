@@ -1,4 +1,4 @@
-lines = open("input.txt", "r").read().split("\n")
+lines = open("input.txt", "r").read().strip().split("\n")
 reports = [list(map(int, x.split())) for x in lines]
 
 safe = 0

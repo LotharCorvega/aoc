@@ -1,4 +1,4 @@
-lines = open("input.txt", "r").read().split("\n")
+lines = open("input.txt", "r").read().strip().split("\n")
 fst, snd = [], []
 
 for line in lines:

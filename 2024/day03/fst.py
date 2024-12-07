@@ -1,6 +1,6 @@
 import re
 
-lines = open("input.txt", "r").read().split("\n")
+lines = open("input.txt", "r").read().strip().split("\n")
 s = 0
 
 for line in lines:

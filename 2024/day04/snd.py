@@ -1,4 +1,4 @@
-grid = open("input.txt", "r").read().split("\n")
+grid = open("input.txt", "r").read().strip().split("\n")
 n = len(grid)
 m = len(grid[0])
 count = 0

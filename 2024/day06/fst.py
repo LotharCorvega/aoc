@@ -1,4 +1,4 @@
-grid = open("input.txt", "r").read().split("\n")
+grid = open("input.txt", "r").read().strip().split("\n")
 m, n = len(grid), len(grid[0])
 
 x, y = next((s.index("^"), i) for i, s in enumerate(grid) if "^" in s)

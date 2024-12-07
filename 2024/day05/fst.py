@@ -1,4 +1,4 @@
-rules_txt, updates_txt = open("input.txt", "r").read().split("\n\n")
+rules_txt, updates_txt = open("input.txt", "r").read().strip().split("\n\n")
 
 rules = list(map(lambda x: tuple(map(int, x.split("|"))), rules_txt.split("\n")))
 updates = list(map(lambda x: list(map(int, x.split(","))), updates_txt.split("\n")))

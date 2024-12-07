@@ -1,6 +1,6 @@
 from itertools import product
 
-lines = open("input.txt", "r").read().split("\n")
+lines = open("input.txt", "r").read().strip().split("\n")
 sum = 0
 
 for line in lines:

@@ -1,6 +1,6 @@
 import re
 
-lines = open("input.txt", "r").read().split("\n")
+lines = open("input.txt", "r").read().strip().split("\n")
 active = True
 s = 0
 

@@ -25,7 +25,7 @@ def diag(grid, dir):
 
     return list(diags.values())
 
-grid = open("input.txt", "r").read().split("\n")
+grid = open("input.txt", "r").read().strip().split("\n")
 all = grid + tran(grid) + diag(grid, -1) + diag(grid, 1)
 count = 0
 
