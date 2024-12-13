@@ -1,21 +1,17 @@
 import re
-from z3 import Solver, sat, Int
 
 input = open("input.txt", "r").read().strip().split("\n\n")
-machines = []
-
 tokens = 0
 
-for i in input:
-    ax, ay, bx, by, px, py = map(int, re.findall(r"(\d+)", i))
-    a, b = Int("a"), Int("b")
+for i in input:    
+    a, c, b, d, x, y = map(int, re.findall(r"(\d+)", i))
+    x += 10000000000000
+    y += 10000000000000
 
-    S = Solver()
-    S.add(a * ax + b * bx == px + 10000000000000)
-    S.add(a * ay + b * by == py + 10000000000000)
+    A = (d * x + -b * y) // (a * d - b * c)
+    B = (-c * x + a * y) // (a * d - b * c)
 
-    if S.check() == sat:
-        m = S.model()
-        tokens += m[a].as_long() * 3 + m[b].as_long()
+    if a * A + b * B == x and c * A + d * B == y:
+        tokens += A * 3 + B
 
 print(tokens)
