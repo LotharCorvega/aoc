@@ -44,7 +44,7 @@ fo = local_vars["f"]
 
 n = len(prog)
 A = [BitVec(f"a{i}", 64) for i in range(n + 1)]
-O = [BitVec(f"out{i}", 64) for i in range(n)]
+O = [BitVec(f"o{i}", 64) for i in range(n)]
 
 opt = Optimize()
 
